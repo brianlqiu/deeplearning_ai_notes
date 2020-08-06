@@ -151,10 +151,22 @@ J = 1 / m * np.sum(a)   # calculates cost
 # Backpropagation
 dz = 1 / m * a - y      # use prederived trick in previous section, don't forget 1/m; a and y are both (1,m) so valid operation
 dw = X @ dz.T           # have to transpose dz so we get (n,m) * (m,1) operation
-db = dz                 
+db = np.sum(dz)                 
 
 # Apply gradient descent
 w = w - alpha * dw    
 b = b - alpha * db         
 ```
 - Vectorization is faster and avoids looping
+
+# Vectorization
+- GPU's and CPU's have parallelisation features (SIMD) that makes vectorization more efficient than looping 
+- Try avoiding explicit for loops for neural networks
+
+# Broadcasting
+```
+A = np.random.randn(3, 4)   
+
+sumCols = A.sum(axis=0)         # get sum of all columns, get in (1,4) array
+percentage = 100 * A / cal      # to calculate the percentages of each value in column on sum of column, we broadcast the (1,4) array cal to a (3,4), then divide all elements in A by their corresponding elements
+```
