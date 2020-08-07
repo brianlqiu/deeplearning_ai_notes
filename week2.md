@@ -170,3 +170,9 @@ A = np.random.randn(3, 4)
 sumCols = A.sum(axis=0)         # get sum of all columns, get in (1,4) array
 percentage = 100 * A / cal      # to calculate the percentages of each value in column on sum of column, we broadcast the (1,4) array cal to a (3,4), then divide all elements in A by their corresponding elements
 ```
+
+# Learning Rates
+- Dfiferent learning rates will determine how quickly the cost function converges
+- The larger the learning rate, the bigger the "steps" gradient descent will take towards the minimum
+- However, if the learning rate is too large, the algorithm may never converge
+- If the learning rate is too low, there is a risk of overfitting
