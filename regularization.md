@@ -24,7 +24,7 @@
 keep_prob = 0.8
 
 # Let d3 be our dropout vector
-d3 = np.random.randn(a3.shape[0], a3.shape[1]) < keep_prob
+d3 = np.random.randn(a3.shape[0], a3.shape[1]) > keep_prob
 a3 *= d3            # 0 out all False values
 # Since 20% of our nodes will get dropped out, this will scale Z downwards
 # To account for that fact we have to divide by keep_prob to bump it back up
