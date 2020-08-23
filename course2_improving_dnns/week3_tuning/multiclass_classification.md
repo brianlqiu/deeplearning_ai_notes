@@ -1,0 +1,17 @@
+# Softmax Regression
+- So far we've been doing binary classificaiton, but we want to classify into many different classes
+- Let $C$ be the number of classes
+- The output layer will have $C$ units, each of which will output the probability of each class
+    - We call this a softmax layer
+- In the last layer, compute $Z^L$ as normal
+- Then our activation function is the softmax function:
+    - $\frac T{\displaystyle\sum^C_{j=1}T_j}$
+    - Where $T=e^{Z^L}$
+- Softmax function requires vector input
+- Loss function:
+    - $L(A^L, Y)=-\displaystyle\sum^C_{j=1}Y_j\log(A^L_j)$
+    - Since we want to minimize loss, we want the largest possible probability $A^L_j$ for the correct class
+- Cost function is the same:
+    - $J(W^1,b^1,...)=\frac1m\displaystyle\sum^m_{i=1}L(A^L,Y)$
+- Derivative of cost function in final layer ($dZ^L$) is now:
+    - $dZ^L=A^L-Y$
